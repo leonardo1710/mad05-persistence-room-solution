@@ -30,13 +30,9 @@
 
     <fragment
         android:id="@+id/watchlistFragment"
-        android:name="com.example.mad03_fragments_and_navigation.WatchlistFragment"
+        android:name="com.example.mad03_fragments_and_navigation.FavoritesFragment"
         android:label="@string/my_watchlist"
-        tools:layout="@layout/fragment_watchlist" />
-    <fragment
-        android:id="@+id/addMovieFragment"
-        android:name="com.example.mad03_fragments_and_navigation.AddMovieFragment"
-        android:label="AddMovieFragment" />
+        tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.example.mad03_fragments_and_navigation.QuizFragment"
@@ -45,8 +41,8 @@
         <action
             android:id="@+id/action_quizFragment_to_quizEndFragment"
             app:destination="@id/quizEndFragment"
-            app:popUpTo="@id/quizFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/quizEndFragment"

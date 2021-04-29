@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mad03_fragments_and_navigation"
-        minSdkVersion 25
+        minSdkVersion 27
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -53,6 +53,17 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
+    //  Lifecycle and ViewModels
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"       //use coroutines with room
 
 }

@@ -6,14 +6,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.mad03_fragments_and_navigation.models.Movie
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mad03_fragments_and_navigation.HomeFragmentDirections
 import com.example.mad03_fragments_and_navigation.R
 import com.example.mad03_fragments_and_navigation.databinding.MovieItemBinding
+import com.example.mad03_fragments_and_navigation.models.Movie
 
 
-class MovieListAdapter:
+class MovieListAdapter(
+    val onAddToFavsClicked: (Movie) -> Unit
+):
     ListAdapter<Movie, RecyclerView.ViewHolder>(
         MovieDiffCallback()
     ) {
@@ -36,7 +38,7 @@ class MovieListAdapter:
         }
     }
 
-    class ViewHolder(
+    inner class ViewHolder(
         private val binding: MovieItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -44,6 +46,12 @@ class MovieListAdapter:
             binding.goToDetailBtn.setOnClickListener{ btnView ->
                 binding.movie?.id?.let { itemId->
                     btnView.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(itemId.toString()))
+                }
+            }
+
+            binding.addToFavorites.setOnClickListener {
+                binding.movie?.let { movie ->
+                    onAddToFavsClicked(movie)
                 }
             }
         }

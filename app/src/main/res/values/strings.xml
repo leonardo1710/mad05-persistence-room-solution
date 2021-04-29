@@ -27,4 +27,9 @@
     <string name="your_score">Your Score</string>
 
     <string name="question_progress">Question %d/%d</string>
+    <string name="my_notes">Your notes: %s</string>
+    <string name="add_to_favs">Add to Favs</string>
+    <string name="clear">Clear</string>
+    <string name="remove">Remove</string>
+    <string name="edit">Edit</string>
 </resources>
